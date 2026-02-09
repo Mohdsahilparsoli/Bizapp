@@ -1,15 +1,16 @@
 import { useAppSelector } from "@/store/hooks";
 import { Redirect, Stack } from "expo-router";
 
-export default function ProtectedLayout() {
+function RootNavigator() {
   const { user, loading } = useAppSelector((state) => state.auth);
 
   if (loading) return null;
 
-  // ❌ not logged in → login page
   if (!user) {
     return <Redirect href="/(auth)/login" />;
   }
 
   return <Stack screenOptions={{ headerShown: false }} />;
 }
+
+export default RootNavigator;
