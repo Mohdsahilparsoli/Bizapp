@@ -13,7 +13,6 @@ export default function LoginScreen() {
     initialValues: { email: "testuser123@gmail.com", password: "12345678" },
     onSubmit: async (values, { resetForm }) => {
       let loginflow = await dispatch(loginUser(values)).unwrap();
-      console.log(loginflow);
       resetForm();
     },
   });
